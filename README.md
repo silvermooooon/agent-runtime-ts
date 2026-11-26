@@ -25,7 +25,3 @@ npm install --ignore-scripts
 npm run check   # TypeScript typecheck + module layering DAG verification
 npm test        # Build dist/ and run node:test suite
 ```
-
-## Third-Party Notices
-
-See [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md).
