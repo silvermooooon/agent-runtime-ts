@@ -1,0 +1,81 @@
+{
+	"name": "agent-runtime-ts",
+	"version": "0.1.0",
+	"private": true,
+	"type": "module",
+	"exports": {
+		".": {
+			"types": "./dist/agent/src/index.d.ts",
+			"import": "./dist/agent/src/index.js"
+		},
+		"./agent": {
+			"types": "./dist/agent/src/index.d.ts",
+			"import": "./dist/agent/src/index.js"
+		},
+		"./ai": {
+			"types": "./dist/ai/src/index.d.ts",
+			"import": "./dist/ai/src/index.js"
+		},
+		"./ai/providers/openai": {
+			"types": "./dist/ai/src/providers/openai.d.ts",
+			"import": "./dist/ai/src/providers/openai.js"
+		},
+		"./ai/providers/azure": {
+			"types": "./dist/ai/src/providers/azure.d.ts",
+			"import": "./dist/ai/src/providers/azure.js"
+		},
+		"./ai/providers/all": {
+			"types": "./dist/ai/src/providers/all.d.ts",
+			"import": "./dist/ai/src/providers/all.js"
+		},
+		"./schema": {
+			"types": "./dist/schema/src/index.d.ts",
+			"import": "./dist/schema/src/index.js"
+		},
+		"./schema/formats": {
+			"types": "./dist/schema/src/formats/index.d.ts",
+			"import": "./dist/schema/src/formats/index.js"
+		},
+		"./telemetry": {
+			"types": "./dist/telemetry/src/index.d.ts",
+			"import": "./dist/telemetry/src/index.js"
+		},
+		"./session": {
+			"types": "./dist/session/src/index.d.ts",
+			"import": "./dist/session/src/index.js"
+		},
+		"./postgres": {
+			"types": "./dist/postgres/src/index.d.ts",
+			"import": "./dist/postgres/src/index.js"
+		},
+		"./postgres/blob-store": {
+			"types": "./dist/postgres/src/blob-store.d.ts",
+			"import": "./dist/postgres/src/blob-store.js"
+		},
+		"./blob-s3": {
+			"types": "./dist/blob-s3/src/index.d.ts",
+			"import": "./dist/blob-s3/src/index.js"
+		},
+		"./cluster": {
+			"types": "./dist/cluster/src/index.d.ts",
+			"import": "./dist/cluster/src/index.js"
+		}
+	},
+	"scripts": {
+		"typecheck": "tsc --noEmit",
+		"check:layers": "node scripts/check-layering.mjs",
+		"check": "npm run typecheck && npm run check:layers",
+		"build": "tsc",
+		"test": "npm run build && node --test test/*.test.mjs",
+		"clean": "rm -rf dist"
+	},
+	"dependencies": {
+		"openai": "7.59.0",
+		"pg": "8.23.1"
+	},
+	"devDependencies": {
+		"@types/node": "22.19.19",
+		"@types/pg": "8.23.1",
+		"typescript": "5.9.3"
+	}
+}
